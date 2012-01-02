@@ -27,7 +27,7 @@ our @EXPORT = qw(
 
 );
 
-our $VERSION = '0.9';
+our $VERSION = '0.91';
 
 # Preloaded methods go here.
 
@@ -390,15 +390,17 @@ as a function of temperature (and pressure)
 =head1 SYNOPSIS
 
     use Physics::Water::SoundSpeed;
+    
+    $Sound = new Physics::Water::SoundSpeed();
 
 Simplist usage as a function of temperature
 
-    my $Sound = new Physics::Water::SoundSpeed();
     $ss = $Sound->soundspeed(21);
     print "The speed of sound in pure water is $ss meters/sec at 21 degrees\n";
 
 Or as a function of temperature and pressure
-    $ss = $Sound->soundspeed(21,7);  # degrees C / MPa
+
+    $ss = $Sound->soundspeed(21,7);  # Input in degrees C / MPa
     print "The speed of sound in pure water is $ss meters/sec at 21 C and 7 MPa\n";
 
 Both sound speed functions accept references to arrays and returns a reference to an array.
@@ -426,14 +428,14 @@ The equation by Chen and Millero is used.
     print "Speed Sound in Sea Water at 5 C, 1 MPa, 35 ppm -> $ss\n";
 
 Simple hydrostatic pressure from depth functions are available for fresh and sea water. These
-functions take either a scalar a ref to an array 
+functions take either a scalar or a reference to array 
 
     @dp = (0,50,100,150,200,250,300,350,400,450,500,600,700,800,900,1000); # In Meters
     $pr = $obj->d2p_fresh( \@dp ); # Returned is a ref to array with pressure in MPa for each depth
 
     $pr = $obj->d2p_sea( \@dp ); # Returned is a ref to array with pressure in MPa for each depth
 
-    $pr = $obj->d2p_sea( 50 ); # Returned is scalar for the given pressure 
+    $pr = $obj->d2p_sea( 50 );   # Returned is scalar for the given pressure 
     
     
 SI Units (Meters, Seconds, MPa) are default however you can switch to us US Customary units when creating
@@ -443,7 +445,7 @@ the object. US Customary units used are ft, sec, psi. Here is how to use the abo
 
     $ss = $Sound->soundspeed_t(72);
     print "The speed of sound in pure water is $ss ft/sec at 72 degrees F\n";
-        
+   
 Finally the defaults used in these calculation are
 
 * Salinity for Sea Water 'ppm' => 35 ppm
@@ -499,7 +501,7 @@ I<C-T. Chen and F.J. Millero, Speed of sound in seawater at high pressures (1977
 
 Sound Speed in water along isotherms and isobars plotted as a test using this module are available at   
 
-http://perlworks.com/cpan/Physics-Water-SoundSpeed/misc/ss.html
+http://perlworks.com/cpan/Physics-Water-SoundSpeed/misc/Sound-Speed-in-Water.html
 
 
 =head1 AUTHOR
