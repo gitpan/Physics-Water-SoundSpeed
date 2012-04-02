@@ -17,16 +17,16 @@ ok($obj, 'Create Object');
 my $ss = $obj->sound_speed_t(10);
 
 $exp_ft_10 = 1447.288999936;
-ok($ss == $exp_ft_10, 'Sound Speed at 10c');
+ok(sprintf("%5.7f",$ss) == sprintf("%5.7f",$exp_ft_10), 'Sound Speed at 10c');
 
 $exp_ftp_10_p101325  = 1447.27945667482;
 
 $ss = $obj->sound_speed( 10,  .101325);
-ok($ss == $exp_ftp_10_p101325,"Sound Speed at 10c and .101 Mpa" );
+ok(sprintf("%5.7f",$ss) == sprintf("%5.7f",$exp_ftp_10_p101325),"Sound Speed at 10c and .101 Mpa" );
 
 $exp_d2p_300 = 3.043425;
 my $pres = $obj->d2p_fresh( [0, 100, 200, 300]);
-ok($pres->[3] == $exp_d2p_300,"Pressure at 300m" );
+ok(sprintf("%5.7f",$pres->[3]) == sprintf("%5.7f",$exp_d2p_300),"Pressure at 300m" );
 
 my $exp_sea_t5_p1_s35 = 1472.3718861444;
 $ss = $obj->sound_speed_sea_tps(5,1,35);

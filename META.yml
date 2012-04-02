@@ -1,7 +1,7 @@
 ---
 abstract: 'Perl module to calculate the speed of sound in pure water and sea water'
 author:
-  - 'A. U. Thor <a.u.thor@a.galaxy.far.far.away>'
+  - 'Steven Troxel < steven.troxel@gmail.com>'
 build_requires:
   ExtUtils::MakeMaker: 0
 configure_requires:
@@ -18,4 +18,4 @@ no_index:
     - t
     - inc
 requires: {}
-version: 0.91
+version: 0.92

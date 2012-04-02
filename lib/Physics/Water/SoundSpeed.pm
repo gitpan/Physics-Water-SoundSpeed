@@ -27,7 +27,7 @@ our @EXPORT = qw(
 
 );
 
-our $VERSION = '0.91';
+our $VERSION = '0.92';
 
 # Preloaded methods go here.
 
